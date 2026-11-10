@@ -240,7 +240,7 @@ public final class D2Settings {
     static boolean plugyExtraEffective(Context context, String iniKey, boolean byDefault) {
         D2Spielweise.Regulator r = D2Spielweise.byPlugyKey(iniKey);
 
-        if (r != null && D2Mods.active(context) != null) return false;
+        if (r != null && r.mod && D2Mods.active(context) != null) return false;
         return r != null ? spielweise(context, r) == 1 : plugyExtra(context, iniKey, byDefault);
     }
 
